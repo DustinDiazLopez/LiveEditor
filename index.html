@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Live Editor</title>
+    <script src="js/peer.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <!-- <script src="plugin/CodeMirror-master/lib/codemirror.js" charset="utf-8"></script> -->
+    <!-- <script src="js/default.js"></script> -->
+
+    <link rel="stylesheet" type="text/css" href="plugin/CodeMirror-master/lib/codemirror.css">
+  </head>
+  <body>
+    <script type="text/javascript">
+      var conn;
+      var peer = new Peer({key: 'lwjd5qra8257b9'});
+
+      peer.on('open', function(id) {
+        console.log('Your peer ID is: ' + id);
+        $('#pid').text(id);
+      });
+
+      peer.on('connection', connect);
+      function connect(c) {
+        conn = c;
+        $('#rid').val(conn.peer);
+
+        $('#rid').prop('disabled', true);
+
+        conn.on('data', function(data) {
+          clearContents(document.getElementById('inputText'));
+          $('#inputText').val($('#inputText').val() + data);
+        });
+      }
+
+      $().ready(function() {
+        $('#connect').click(function() {
+          var c = peer.connect($('#rid').val());
+          c.on('open', function() {
+            connect(c);
+          });
+        });
+
+        $('#inputText').keyup(function(e) {
+          var content = $('#inputText').val();
+          conn.send(content);
+        });
+      });
+
+      function clearContents(element) {
+        element.value = '';
+      }
+    </script>
+
+    Your peer ID: <span id="pid">Please wait...</span><br><br>
+    Connect to peer:
+    <input type="text" id="rid" placeholder="Someone else's id">
+    <input type="button" id="connect" value="Connect">
+    <input type="button" id="disconnect" value="Disconnect">
+    <br><br>
+    <textarea id="inputText" class="codemirror-textarea"></textarea>
+  </body>
+</html>
