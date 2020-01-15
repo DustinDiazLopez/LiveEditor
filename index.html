@@ -2,63 +2,53 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Live Editor</title>
-    <script src="js/peer.min.js"></script>
-    <script src="js/jquery.min.js"></script>
 
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/peer.min.js"></script>
     <!-- <script src="plugin/CodeMirror-master/lib/codemirror.js" charset="utf-8"></script> -->
     <!-- <script src="js/default.js"></script> -->
 
+    <script src="js/CopyToClip.js" charset="utf-8"></script>
+    <script src="js/script.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="plugin/CodeMirror-master/lib/codemirror.css">
+
   </head>
   <body>
-    <script type="text/javascript">
-      var conn;
-      var peer = new Peer({key: 'lwjd5qra8257b9'});
+    <div class="container">
+      <h2>Live Editor</h2>
 
-      peer.on('open', function(id) {
-        console.log('Your peer ID is: ' + id);
-        $('#pid').text(id);
-      });
+      <hr>
 
-      peer.on('connection', connect);
-      function connect(c) {
-        conn = c;
-        $('#rid').val(conn.peer);
+      <from class="form-inline" action="#">
+        <label for="pid" style="width:100px;">Your Peer ID:</label>
+        <input id="pid" value="Please wait..." class="form-control" style="background-color: black;color:#fff;" readonly="readonly"></input>
+        <label for="rid" style="width:10px;"> </label>
+      </form>
+      <button onclick="copyToClip()" class="btn btn-outline-secondary" id="btn-copy">Copy</button>
+    </div>
 
-        $('#rid').prop('disabled', true);
+    <hr>
 
-        conn.on('data', function(data) {
-          clearContents(document.getElementById('inputText'));
-          $('#inputText').val($('#inputText').val() + data);
-        });
-      }
+    <div class="container">
+    <form class="form-inline" action="#">
+      <div class="form-group">
+        <label for="rid" style="width:120px;" id="rid-label">Connect to peer</label>
+        <input type="text" class="form-control" id="rid" placeholder="Peer ID" name="peer-id">
+      </div>
 
-      $().ready(function() {
-        $('#connect').click(function() {
-          var c = peer.connect($('#rid').val());
-          c.on('open', function() {
-            connect(c);
-          });
-        });
+      <div class="form-group">
+        <label for="rid" style="width:10px;"> </label>
+        <input type="button" id="connect" class="btn btn-secondary" value="Connect">
+      </div>
+    </form>
 
-        $('#inputText').keyup(function(e) {
-          var content = $('#inputText').val();
-          conn.send(content);
-        });
-      });
+    <hr>
 
-      function clearContents(element) {
-        element.value = '';
-      }
-    </script>
-
-    Your peer ID: <span id="pid">Please wait...</span><br><br>
-    Connect to peer:
-    <input type="text" id="rid" placeholder="Someone else's id">
-    <input type="button" id="connect" value="Connect">
-    <input type="button" id="disconnect" value="Disconnect">
-    <br><br>
-    <textarea id="inputText" class="codemirror-textarea"></textarea>
+    <textarea id="inputText" class="codemirror-textarea form-control" style="height: 75vh; background-color: black;color:#fff;"></textarea>
   </body>
 </html>
