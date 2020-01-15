@@ -8,17 +8,26 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/peer.min.js"></script>
-    <!-- <script src="plugin/CodeMirror-master/lib/codemirror.js" charset="utf-8"></script> -->
+
+    <script src="plugin/CodeMirror-master/lib/codemirror.js" charset="utf-8"></script>
+    <script src="plugin/CodeMirror-master/addon/hint/show-hint.js" charset="utf-8"></script>
+    <script src="plugin/CodeMirror-master/addon/hint/css-hint.js" charset="utf-8"></script>
     <!-- <script src="js/default.js"></script> -->
 
     <script src="js/CopyToClip.js" charset="utf-8"></script>
     <script src="js/script.js" charset="utf-8"></script>
 
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="plugin/CodeMirror-master/addon/hint/show-hint.css">
     <link rel="stylesheet" type="text/css" href="plugin/CodeMirror-master/lib/codemirror.css">
 
   </head>
   <body>
+    <style media="screen">
+    textarea {
+      font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+    }
+    </style>
     <div class="container">
       <blockquote class="blockquote">
         <h1 class="display-4">Live Editor</h1>
@@ -58,6 +67,21 @@
 
     <hr>
 
-    <textarea id="inputText" class="codemirror-textarea form-control" style="height: 75vh; background-color: black;color:#fff;"></textarea>
+    <textarea autofocus id="inputText" class="codemirror-textarea form-control" style="height: 75vh; background-color: black;color:#fff;"></textarea>
   </body>
 </html>
+
+<!-- d
+_______________                        |*\_/*|________
+|  ___________  |     .-.     .-.      ||_/-\_|______  |
+| |           | |    .****. .****.     | |           | |
+| |   0   0   | |    .*****.*****.     | |   0   0   | |
+| |     -     | |     .*********.      | |     -     | |
+| |   \___/   | |      .*******.       | |   \___/   | |
+| |___     ___| |       .*****.        | |___________| |
+|_____|\_/|_____|        .***.         |_______________|
+ _|__|/ \|_|_.............*.............._|________|_
+/ ********** \                          / ********** \
+/  ************  \                      /  ************  \
+--------------------                    --------------------
+d -->
