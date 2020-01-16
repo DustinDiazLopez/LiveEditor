@@ -24,9 +24,9 @@
   </head>
   <body>
     <style media="screen">
-    textarea {
-      font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
-    }
+      textarea {
+        font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+      }
     </style>
 
     <style>
@@ -70,9 +70,9 @@
 
       <from class="form-inline" action="#">
         <label for="pid" style="width:100px;">Your Peer ID:</label>
-        <input id="pid" placeholder="Please wait..." class="form-control" style="background-color: black;color:#fff;" readonly="readonly" alt="your peer id for the other person"></input>
+        <input id="pid" placeholder="Please wait..." class="form-control" style="width:220px; background-color: black;color:#fff; margin-right: 10px;" readonly="readonly" alt="your peer id for the other person"></input>
       </form>
-      <button onclick="copyToClip()" class="btn btn-secondary" id="btn-copy">Copy</button>
+      <button onclick="copyToClip()" class="btn btn-secondary" id="btn-copy">Copy ID</button>
     </div>
 
     <hr>
@@ -81,7 +81,7 @@
     <form class="form-inline" action="#">
       <div class="form-group">
         <label for="rid" style="width:120px;" id="rid-label">Connect to peer</label>
-        <input type="text" class="form-control" style="background-color: black;color:#fff;" id="rid" placeholder="Peer ID" name="peer-id">
+        <input type="text" class="form-control" style="width:200px; background-color: black;color:#fff; margin-right: 10px;" id="rid" placeholder="Peer ID" name="peer-id">
       </div>
 
       <div class="form-group">
