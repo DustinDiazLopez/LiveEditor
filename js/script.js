@@ -18,8 +18,13 @@ function connect(c) {
   $('#connect').val('Connecting...');
 
   conn.on('data', function(data) {
+    $('#typing').fadeIn('fast');
     clearContents(document.getElementById('inputText'));
     $('#inputText').val($('#inputText').val() + data);
+    setTimeout(function() {
+      $('#typing').fadeOut('fast');
+    }, 1000);
+    //$('#inputText').delay(5000).removeClass("is-valid");
   });
   $('#connect').removeClass("btn-warning");
   $('#connect').removeClass("btn-secondary");
@@ -35,8 +40,6 @@ $().ready(function() {
     var c = peer.connect($('#rid').val());
     c.on('open', function() {
       connect(c);
-      $('#connect').removeClass("btn-warning");
-      $('#connect').addClass("btn-success");
     });
   });
 
