@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tic-Tac-Toe</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/peer.min.js"></script>
+    <script src="plugin/p5/p5.js" charset="utf-8"></script>
+    <script src="js/CopyToClip.js" charset="utf-8"></script>
+
+    <script src="js/tictactoe/tictactoe.js" charset="utf-8"></script>
+    <script src="js/tictactoe/peertactoe.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+  </head>
+  <body>
+    <style>
+      #overlay {
+          position: fixed;
+          display: block;
+          width: 35.2%;
+          height: 80%;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          /* background-color: rgba(0,0,0,1); */
+          z-index: 2;
+          transform: translate(75%,15%);
+        }
+      </style>
+
+    <div class="container" align=center>
+      <h1>Tic Tac Toe</h1>
+      <from class="form-inline" action="#">
+        <label for="pid" style="width:100px;">Your Peer ID:</label>
+        <input id="pid" placeholder="Please wait..." class="form-control"
+        style="width:220px; background-color: black;color:#fff; margin-right: 10px;" readonly="readonly"
+        alt="your peer id for the other person"></input>
+        <button onclick="copyToClip()" class="btn btn-secondary" id="btn-copy">Copy ID</button>
+        <div class="form-group">
+          <label for="rid" style="width:120px;" id="rid-label">Connect to peer</label>
+          <input type="text" class="form-control" style="width:200px; background-color: black;color:#fff; margin-right: 10px;" id="rid" placeholder="Peer ID" name="peer-id">
+        </div>
+        <div class="form-group">
+          <input type="button" id="connect" style="margin-right: 10px;" class="btn btn-secondary" value="Connect" alt="Button to connect to the other person">
+          <div id="typing" class="loader hidden"></div>
+        </div>
+      <!-- </form> -->
+    </div>
+
+    <div id="overlay">
+      <p id="reset">Press <b>ENTER</b> to restart</p>
+      <p id="info">The next turn</p>
+      <footer class="blockquote-footer">
+        Made with
+        <cite><a href="https://peerjs.com/">PeerJS</a></cite>,
+        <cite><a href="https://getbootstrap.com/">Bootstrap</a></cite>,
+        and
+        <cite><a href="https://jquery.com/">jQuery</a></cite>
+      </footer>
+    </div>
+  </body>
+</html>
