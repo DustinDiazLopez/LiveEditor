@@ -19,8 +19,22 @@ function getBoard() {
   return cells;
 }
 
+function getNextplayer() {
+	return player;
+}
+
 function setBoard(data) {
   cells = data;
+}
+
+function setNextplayer(da) {
+	player = da;
+
+	if (player == 'X') {
+		nextPlayer = 'O'
+	} else {
+		nextPlayer = 'X'
+	}
 }
 
 

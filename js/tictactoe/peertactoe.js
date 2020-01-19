@@ -23,8 +23,10 @@ function connect(c) {
 
   conn.on('data', function(data) {
     console.log('data');
-    console.log(data);
-    setBoard(data); //sets the board state of the other player
+    console.log(data[0]);
+    console.log(data[1]);
+    setBoard(data[0]); //sets the board state of the other player
+    setNextplayer(data[1]);
   });
 
   $('#connect').removeClass("btn-warning");
@@ -45,16 +47,19 @@ $().ready(function() {
   });
 
   $('#overlay').click(function(e) {
-    console.log('click');
-    console.log(newBoard());
-    conn.send(newBoard()); //sends the new board state when the overlay is clicked
+    //console.log('[CLICK] next player is:' + getNextplayer());
+    try {
+      conn.send([newBoard(), getNextplayer()]); //sends the new board state when the overlay is clicked
+    } catch (ignored) {}
   });
 
   $('body').keyup(function(e){
-    console.log(e.keyCode);
     if(e.keyCode == 13) { //Enter keycode
+        //console.log('Enter key pressed');
         keyPressed(); //from tictactoe.js
-        conn.send(newBoard()); //sends the new board state after reset
+        try {
+          conn.send([newBoard(), 'X']); //sends the new board state after reset
+      } catch(ignored) {}
     }
   });
 });
