@@ -1,5 +1,5 @@
-//http://www.kenrockwell.com/contax/images/g2/examples/31120037-5mb.jpg
-const imageAddr = "https://upload.wikimedia.org/wikipedia/commons/2/2d/Snake_River_%285mb%29.jpg";
+//https://stackoverflow.com/questions/5529718/how-to-detect-internet-speed-in-javascript
+const imageAddr = "https://dustindiazlopez.github.io/LiveJS/Snake_River_%285mb%29.jpg";
 const downloadSize = 4995374; //bytes
 
 function ShowProgressMessage(msg) {
