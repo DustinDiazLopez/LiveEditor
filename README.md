@@ -1,10 +1,10 @@
-## LiveJS - SITM
-Just having some fun with [PeerJS](https://peerjs.com/)
+## LiveJS [DROPPED]
+Just having some fun with [PeerJS](https://peerjs.com/). 
 
-### Editor [Demo](https://dustindiazlopez.github.io/LiveJS/):
+### Live Editor [Demo](https://dustindiazlopez.github.io/LiveJS/):
 By live editor, I mean two people once connected via PeerJS can write on a textarea simultaneously.
 
-### Tic Tac Toe [Demo](https://dustindiazlopez.github.io/LiveJS/tictactoe.html):
+### ~Tic Tac Toe [Demo](https://dustindiazlopez.github.io/LiveJS/tictactoe.html) (in progress~):
 The Tic Tac Toe Game with friends... FROM AFAR :D
 
 ## How to...
